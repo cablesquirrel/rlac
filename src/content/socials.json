@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "icon": {
+      "type": "lucide",
+      "name": "github"
+    },
+    "text": "GitHub",
+    "link": "https://github.com/cablesquirrel"
+  },
+  {
+    "id": 2,
+    "icon": {
+        "type": "lucide",
+        "name": "linkedin"
+    },
+    "text": "LinkedIn",
+    "link": "https://www.linkedin.com/in/ericmhansen/"
+  },
+  {
+    "id": 3,
+    "icon": {
+        "type": "lucide",
+        "name": "mail"
+    },
+    "text": "Email",
+    "link": "mailto:ericzone.admin@gmail.com"
+  },
+  {
+    "id": 4,
+    "icon": {
+      "type": "lucide",
+      "name": "antenna"
+    },
+    "text": "Call Sign: KO4FOD",
+    "link": "https://www.qrz.com/db/KO4FOd"
+  }
+]

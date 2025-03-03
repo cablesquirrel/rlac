@@ -1,0 +1,527 @@
+[
+    {
+      "id": "c50d8e5ba49dbf8b",
+      "type": "tab",
+      "label": "Aroma-Link Auth",
+      "disabled": false,
+      "info": "",
+      "env": []
+    },
+    {
+      "id": "ca86d8d418180c1d",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Set Form Data",
+      "func": "// Move the switch state into the message.flow object\nmsg.flow = {\n    'switchState': msg._switchState\n}\ndelete msg._switchState;\n\n// Set the headers and payload needed for the HTTP request\nmsg.headers = {};\nmsg.headers['Content-Type'] = 'multipart/form-data';\nmsg.headers['Accept'] = 'application/json';\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 420,
+      "y": 140,
+      "wires": [
+        [
+          "41f43e1a0a62ec44"
+        ]
+      ]
+    },
+    {
+      "id": "21c13986ee9b1a58",
+      "type": "inject",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Manual Start",
+      "props": [
+        {
+          "p": "_switchState",
+          "v": "on",
+          "vt": "str"
+        }
+      ],
+      "repeat": "",
+      "crontab": "",
+      "once": false,
+      "onceDelay": 0.1,
+      "topic": "",
+      "x": 110,
+      "y": 100,
+      "wires": [
+        [
+          "ca86d8d418180c1d"
+        ]
+      ]
+    },
+    {
+      "id": "71460772721d6857",
+      "type": "http request",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "POST /v2/app/token",
+      "method": "POST",
+      "ret": "obj",
+      "paytoqs": "ignore",
+      "url": "http://www.aroma-link.com/v2/app/token",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "insecureHTTPParser": false,
+      "authType": "",
+      "senderr": false,
+      "headers": [],
+      "x": 160,
+      "y": 300,
+      "wires": [
+        [
+          "f6d25409792fe52a"
+        ]
+      ]
+    },
+    {
+      "id": "f6d25409792fe52a",
+      "type": "switch",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Check for Failure",
+      "property": "payload.code",
+      "propertyType": "msg",
+      "rules": [
+        {
+          "t": "eq",
+          "v": "200",
+          "vt": "str"
+        },
+        {
+          "t": "neq",
+          "v": "200",
+          "vt": "str"
+        }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 390,
+      "y": 300,
+      "wires": [
+        [
+          "2886293f4aefd3a7"
+        ],
+        [
+          "9452d2b5bdf3d1bb"
+        ]
+      ]
+    },
+    {
+      "id": "5e1cfbd23b2913a5",
+      "type": "server-state-changed",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Check Aroma Link Switch State",
+      "server": "ce0aea93.b99668",
+      "version": 6,
+      "outputs": 1,
+      "exposeAsEntityConfig": "",
+      "entities": {
+        "entity": [
+          "input_boolean.aroma_link_switch"
+        ],
+        "substring": [],
+        "regex": []
+      },
+      "outputInitially": false,
+      "stateType": "str",
+      "ifState": "",
+      "ifStateType": "str",
+      "ifStateOperator": "is",
+      "outputOnlyOnStateChange": true,
+      "for": "0",
+      "forType": "num",
+      "forUnits": "minutes",
+      "ignorePrevStateNull": false,
+      "ignorePrevStateUnknown": false,
+      "ignorePrevStateUnavailable": false,
+      "ignoreCurrentStateUnknown": true,
+      "ignoreCurrentStateUnavailable": true,
+      "outputProperties": [
+        {
+          "property": "_switchState",
+          "propertyType": "msg",
+          "value": "",
+          "valueType": "entityState"
+        }
+      ],
+      "x": 150,
+      "y": 180,
+      "wires": [
+        [
+          "ca86d8d418180c1d"
+        ]
+      ]
+    },
+    {
+      "id": "9391e36d100f78e7",
+      "type": "switch",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Check Switch State",
+      "property": "flow.switchState",
+      "propertyType": "msg",
+      "rules": [
+        {
+          "t": "eq",
+          "v": "on",
+          "vt": "str"
+        },
+        {
+          "t": "eq",
+          "v": "off",
+          "vt": "str"
+        }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 150,
+      "y": 560,
+      "wires": [
+        [
+          "923d522d883fd311"
+        ],
+        [
+          "c6aa21a663818e21"
+        ]
+      ]
+    },
+    {
+      "id": "2886293f4aefd3a7",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Store Tokens",
+      "func": "msg.flow.accessToken = msg.payload.data.accessToken;\nmsg.flow.refreshToken = msg.payload.data.refreshToken;\nmsg.flow.userID = msg.payload.data.id\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 590,
+      "y": 300,
+      "wires": [
+        [
+          "9b15d4b13606447a"
+        ]
+      ]
+    },
+    {
+      "id": "a5955d7f9bdcc786",
+      "type": "http request",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "GET /v1/app/device/listAll",
+      "method": "GET",
+      "ret": "obj",
+      "paytoqs": "ignore",
+      "url": "http://www.aroma-link.com/v1/app/device/listAll/{{flow.userID}}/?pageNum=1&pageSize=10",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "insecureHTTPParser": false,
+      "authType": "",
+      "senderr": false,
+      "headers": [],
+      "x": 370,
+      "y": 420,
+      "wires": [
+        [
+          "d45da1d2027cd2ee"
+        ]
+      ]
+    },
+    {
+      "id": "9b15d4b13606447a",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Set Auth Header",
+      "func": "msg.headers['access_token'] = msg.flow.accessToken;\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 140,
+      "y": 420,
+      "wires": [
+        [
+          "a5955d7f9bdcc786"
+        ]
+      ]
+    },
+    {
+      "id": "b398fe22cb625203",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Store First Device ID",
+      "func": "if (\n    Array.isArray(msg.payload.data) &&\n    msg.payload.data.length > 0 &&\n    msg.payload.data[0].children &&\n    Array.isArray(msg.payload.data[0].children) &&\n    msg.payload.data[0].children.length > 0 &&\n    msg.payload.data[0].children[0].id\n) {\n    msg.flow.deviceID = msg.payload.data[0].children[0].id;\n}\nelse {\n    msg.flow.deviceID = -1; // Default when the structure doesn't exist\n}\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 840,
+      "y": 420,
+      "wires": [
+        [
+          "5df6b13afdeb6391"
+        ]
+      ]
+    },
+    {
+      "id": "d45da1d2027cd2ee",
+      "type": "switch",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Check for Failure",
+      "property": "payload.code",
+      "propertyType": "msg",
+      "rules": [
+        {
+          "t": "eq",
+          "v": "200",
+          "vt": "str"
+        },
+        {
+          "t": "neq",
+          "v": "200",
+          "vt": "str"
+        }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 2,
+      "x": 610,
+      "y": 420,
+      "wires": [
+        [
+          "b398fe22cb625203"
+        ],
+        [
+          "9452d2b5bdf3d1bb"
+        ]
+      ]
+    },
+    {
+      "id": "5df6b13afdeb6391",
+      "type": "switch",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Verify Device ID",
+      "property": "flow.deviceID",
+      "propertyType": "msg",
+      "rules": [
+        {
+          "t": "neq",
+          "v": "-1",
+          "vt": "str"
+        }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 1,
+      "x": 1060,
+      "y": 420,
+      "wires": [
+        [
+          "9391e36d100f78e7"
+        ]
+      ]
+    },
+    {
+      "id": "162a70c9ff8e7d8a",
+      "type": "http request",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "POST /v1/app/data/newSwitch - onOff=1",
+      "method": "POST",
+      "ret": "obj",
+      "paytoqs": "ignore",
+      "url": "https://www.aroma-link.com/v1/app/data/newSwitch?deviceId={{flow.deviceID}}&userId={{flow.userID}}&onOff=1",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "insecureHTTPParser": false,
+      "authType": "",
+      "senderr": false,
+      "headers": [],
+      "x": 640,
+      "y": 540,
+      "wires": [
+        [
+          "de8dfb9df2a2d722"
+        ]
+      ]
+    },
+    {
+      "id": "923d522d883fd311",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Set Auth Header",
+      "func": "msg.headers['access_token'] = msg.flow.accessToken;\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 360,
+      "y": 540,
+      "wires": [
+        [
+          "162a70c9ff8e7d8a"
+        ]
+      ]
+    },
+    {
+      "id": "c6aa21a663818e21",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Set Auth Header",
+      "func": "msg.headers['access_token'] = msg.flow.accessToken;\nreturn msg;",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 360,
+      "y": 580,
+      "wires": [
+        [
+          "b691e2acfe190442"
+        ]
+      ]
+    },
+    {
+      "id": "b691e2acfe190442",
+      "type": "http request",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "POST /v1/app/data/newSwitch - onOff=0",
+      "method": "POST",
+      "ret": "obj",
+      "paytoqs": "ignore",
+      "url": "https://www.aroma-link.com/v1/app/data/newSwitch?deviceId={{flow.deviceID}}&userId={{flow.userID}}&onOff=0",
+      "tls": "",
+      "persist": false,
+      "proxy": "",
+      "insecureHTTPParser": false,
+      "authType": "",
+      "senderr": false,
+      "headers": [],
+      "x": 640,
+      "y": 580,
+      "wires": [
+        [
+          "de8dfb9df2a2d722"
+        ]
+      ]
+    },
+    {
+      "id": "de8dfb9df2a2d722",
+      "type": "switch",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Check for Failure",
+      "property": "payload.code",
+      "propertyType": "msg",
+      "rules": [
+        {
+          "t": "neq",
+          "v": "200",
+          "vt": "str"
+        }
+      ],
+      "checkall": "true",
+      "repair": false,
+      "outputs": 1,
+      "x": 930,
+      "y": 560,
+      "wires": [
+        [
+          "9452d2b5bdf3d1bb"
+        ]
+      ]
+    },
+    {
+      "id": "f1172570ea44b89f",
+      "type": "debug",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Debug: Print Message Bus",
+      "active": true,
+      "tosidebar": true,
+      "console": false,
+      "tostatus": false,
+      "complete": "true",
+      "targetType": "full",
+      "statusVal": "",
+      "statusType": "auto",
+      "x": 1420,
+      "y": 220,
+      "wires": []
+    },
+    {
+      "id": "a47aca5520adc8e0",
+      "type": "md5",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Hash the password",
+      "fieldToHash": "payload.password",
+      "fieldTypeToHash": "msg",
+      "hashField": "payload.password",
+      "hashFieldType": "msg",
+      "x": 850,
+      "y": 140,
+      "wires": [
+        [
+          "71460772721d6857"
+        ]
+      ]
+    },
+    {
+      "id": "41f43e1a0a62ec44",
+      "type": "credentials",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "",
+      "props": [
+        {
+          "value": "payload.userName",
+          "type": "msg"
+        },
+        {
+          "value": "payload.password",
+          "type": "msg"
+        }
+      ],
+      "x": 630,
+      "y": 140,
+      "wires": [
+        [
+          "a47aca5520adc8e0"
+        ]
+      ]
+    },
+    {
+      "id": "9452d2b5bdf3d1bb",
+      "type": "function",
+      "z": "c50d8e5ba49dbf8b",
+      "name": "Throw Error",
+      "func": "throw new Error('API Call in the flow failed');",
+      "outputs": 1,
+      "timeout": 0,
+      "noerr": 0,
+      "initialize": "",
+      "finalize": "",
+      "libs": [],
+      "x": 1370,
+      "y": 400,
+      "wires": [
+        []
+      ]
+    },
+    {
+      "id": "ce0aea93.b99668",
+      "type": "server",
+      "name": "Home Assistant",
+      "addon": true
+    }
+  ]

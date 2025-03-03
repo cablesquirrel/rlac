@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "duration": "February 2013 - present",
+    "company": "Cox Communications, Inc.",
+    "title": "Senior Communications/Network Engineer",
+    "duties": [
+        "Placeholder"
+    ],
+    "accomplishments": [
+        "Co-Inventor of US Patent #11,303,529 'Efficient Network Topology Diagnostic'",
+        "Participated in the Technology Innovation Program",
+        "Recipient of Cox Most Valuable Player(MVP) award 2015"
+    ]
+  },
+  {
+    "id": 2,
+    "duration": "November 2009 - February 2013",
+    "company": "McCall Technology Group",
+    "title": "Senior Communications/Network Engineer",
+    "duties": [
+        "Placeholder"
+    ],
+    "accomplishments": [
+        "Obtained certifications for Toshiba Strata and IPEdge phone system installation and programming" 
+    ]
+  },
+  {
+    "id": 3,
+    "duration": "July 2005 - February 2011",
+    "company": "Advance Auto Parts",
+    "title": "Retail Parts Specialist",
+    "duties": [
+        "Placeholder"
+    ],
+    "accomplishments": [
+        "Obtained ASE Parts Specialist (P2) certification" 
+    ]
+  }
+]

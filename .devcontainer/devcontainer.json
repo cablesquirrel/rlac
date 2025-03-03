@@ -1,0 +1,11 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+	"name": "RealLifeAsCode.com Website",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+    "remoteUser": "node",
+    "runArgs": [
+        "-p=4321:4321"
+    ]
+}
