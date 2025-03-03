@@ -1,5 +1,5 @@
 ---
-title: Home Assistant - Aroma-Link Automation
+title: Home Assistant - 🌺 Aroma-Link Automation
 date: 01-28-2025
 description: Utilizing the Aroma-Link API and Home Assistant to efficiently control whole-home scent distribution.
 image: ../assets/aromaLink/NodeRed_Overview.png
@@ -10,13 +10,17 @@ info:
       type: lucide
       name: house
 ---
-## 🌺 Aroma-Link Automation (January 2025)
+import { Image, Picture } from 'astro:assets';
+import speaker_img_1 from '../assets/aromaLink/speaker_removal_1.png';
+import speaker_img_2 from '../assets/aromaLink/speaker_removal_2.png';
+
+#  {frontmatter.title}
 
 Home Assistant Automation to control an Aroma-Link whole-home scented oil diffuser.
 
 Design by Eric Hansen @cablesquirrel
 
-### 📝 Description
+## 📝 Description
 
 After getting tired of constantly refilling and replacing plug-in air fresheners around the house, we decided to make
 the jump to a whole-home scent solution. The Aroma-Link unit diffuses scented oil on a schedule and forces the atomized
@@ -31,7 +35,7 @@ on the home-assitant community forums, I came up with an automation to control t
 allow me to turn the unit on when my smart thermostat calls for the fan to turn on, and then shut the unit back off after the
 fan shuts down.
 
-### ☑️ Basic Requirements
+## ☑️ Basic Requirements
 
 - Aroma-Link Smart Scent Air Machine Bluetooth & WiFi
 - Registered user account on the Aroma-Link app
@@ -40,11 +44,11 @@ fan shuts down.
     - MD5 Library `npm install node-red-contrib-md5`
 - Smart thermostat integrated with Home Assistant
 
-### 🌎 Exploring the Aroma-Link API
+## 🌎 Exploring the Aroma-Link API
 
 The Aroma-Link devices use an ESP32-based microcontroller and connect back to a central server using unencrypted HTTP requests.
 
-#### 🔐 Credentials
+### 🔐 Credentials
 
 Credentials to access the API are the same as your username and password used to log into the Aroma-Link app on your mobile device.
 However, the password is first hashed using `MD5` before being sent to the remote server. This appears to be some attempt at obfuscation
@@ -97,7 +101,7 @@ In the returned JSON data, you will need to store your `accessToken` for future 
 
 You will also need to store the `id` which corresponds with your particular account ID.
 
-#### 🧳 Device Listing
+### 🧳 Device Listing
 
 Before we can control a device that is associated with our account, we first need to get a list of devices that we can control.
 
@@ -147,7 +151,7 @@ grab the first group and first child device inside of the group as I only have 1
 
 Store the ID of the child device for future calls.
 
-#### 🔄 Controlling the Device State
+### 🔄 Controlling the Device State
 
 We're now ready to turn the device on or off.
 
@@ -170,7 +174,7 @@ curl -X POST http://www.aroma-link.com/v1/app/data/newSwitch\?deviceId\=867530\&
 }
 ```
 
-### 🤖 Building the Process Flow in Node-RED
+## 🤖 Building the Process Flow in Node-RED
 
 Now that we're familiar with the API for the device, we can use a custom flow created in Node-RED to handle the steps required to make
 a change to the state of our Aroma-Link device.
@@ -224,7 +228,7 @@ Flow Principles:
         - Type: (switch node) - Checks the HTTP request return for success or Failure
             - Throws an error if failure detected
 
-### 🏗️ Building a Basic Automation
+## 🏗️ Building a Basic Automation
 
 > Our Node-RED flow will watch this device and trigger a flow execution when the state changes.
 
@@ -280,7 +284,7 @@ actions:
 mode: single
 ```
 
-### 🔕 Silencing the Noise
+## 🔕 Silencing the Noise
 
 One thing you will notice, is that when a command is sent to turn the unit on or off, the internal speaker will beep
 to indicate a state change. In my case, this was highly distracting as the unit lives in my HVAC closet attached to my
@@ -289,6 +293,6 @@ living room. The sound was clearly audible and was testing my sanity.
 I couldn't find a way to disable the sound in software, so I took the manual approach of desoldering the speaker from
 the control board of the device.
 
-![Speaker to be removed](../assets/aromaLink/speaker_removal_1.png)
+<Image src={speaker_img_1} alt="Speaker to be removed" width="800" quality="high" />
 
-![Speaker removed](../assets/aromaLink/speaker_removal_2.png)
+<Image src={speaker_img_2} alt="Speaker to be removed" width="800" quality="high" />
