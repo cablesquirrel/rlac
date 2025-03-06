@@ -3,23 +3,71 @@
     "id": 1,
     "duration": "February 2013 - present",
     "company": "Cox Communications, Inc.",
-    "title": "Senior Communications/Network Engineer",
-    "duties": [
-        "Placeholder"
+    "positions" : [
+        {
+            "jobTitle": "Senior Communications/Network Engineer (current)",
+            "duties": [
+                "Mentored technology team employees with an interest in software and automation",
+                "Hosted live learning sessions for automation-related software development topics",
+                "Published video content and a monthly newsletter showcasing automation projects, tools, and technologies"
+            ]
+        },
+        {
+            "jobTitle": "Communications/Network Engineer II",
+            "duties": [
+                "Constructed configuration tools to automate new equipment turn-ups",
+                "Created and maintained a dynamic health monitoring platform for Cox's Nokia fiber network of over 50,000 devices"
+            ]
+        },
+        {
+            "jobTitle": "Communications/Network Engineer I",
+            "duties": [
+                "Worked to migrate legacy VLAN-based networks to MPLS",
+                "Provided Tier III support for customer trouble call escalations",
+                "Performed maintenance operations such as software upgrades on Cox Business's core Nokia network"
+            ]
+        },
+        {
+            "jobTitle": "IP Centrex Customer Coordinator",
+            "duties": [
+                "Consulted with businesses regarding their current voice technology and needs",
+                "Selected cloud based VOIP solutions using Cox's IP Centrex voice platform",
+                "Trained customers on product operation and maintenance",
+                "Handled technical support escalations for high priority customers",
+                "Supported Sales Engineering on large or complex system designs",
+                "Assisted installation techs with network device configuration and phone provisioning",
+                "Developed tools and automation for common provisioning and maintenance tasks"
+            ]
+        },
+        {
+            "jobTitle": "Commercial HFC Technician",
+            "duties": [
+                "Installed business data, video, and voice services",
+                "Diagnosed issues with Cox's Hybrid Fiber Coax (HFC) plant",
+                "Assisted residential technicians with large installs or repeat trouble call resolution"
+            ]
+        }
     ],
     "accomplishments": [
         "Co-Inventor of US Patent #11,303,529 'Efficient Network Topology Diagnostic'",
         "Participated in the Technology Innovation Program",
-        "Recipient of Cox Most Valuable Player(MVP) award 2015"
+        "Recipient of Cox Most Valuable Player(MVP) award 2015",
+        "Obtained Nokia NRS I certification",
+        "Obtained SIP SSCA certification",
+        "Obtained MEF CECP certification"
     ]
   },
   {
     "id": 2,
     "duration": "November 2009 - February 2013",
     "company": "McCall Technology Group",
-    "title": "Senior Communications/Network Engineer",
-    "duties": [
-        "Placeholder"
+    "positions" : [
+        {
+            "jobTitle": "Business Telephone Systems Technician",
+            "duties": [
+                "Placeholder"
+            ]
+        }
     ],
     "accomplishments": [
         "Obtained certifications for Toshiba Strata and IPEdge phone system installation and programming" 
@@ -29,9 +77,13 @@
     "id": 3,
     "duration": "July 2005 - February 2011",
     "company": "Advance Auto Parts",
-    "title": "Retail Parts Specialist",
-    "duties": [
-        "Placeholder"
+    "positions" : [
+        {
+            "jobTitle": "Retail Parts Specialist",
+            "duties": [
+                "Placeholder"
+            ]
+        }
     ],
     "accomplishments": [
         "Obtained ASE Parts Specialist (P2) certification" 

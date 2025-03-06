@@ -11,14 +11,15 @@ info:
       name: github
 ---
 import { Image, Picture } from 'astro:assets';
-import control_box from "../assets/chickenWaterController/control_box.jpg"
-import tub_in_frame from "../assets/chickenWaterController/tub_in_frame.jpg"
-import assembled_frame from "../assets/chickenWaterController/assembled_frame.jpg"
-import control_box_2 from "../assets/chickenWaterController/control_box_2.jpg"
-import drain_pipe from "../assets/chickenWaterController/drain_pipe.jpg"
-import drain_valve from "../assets/chickenWaterController/drain_valve.jpg"
-import fill_valve from "../assets/chickenWaterController/fill_valve.jpg"
-import completed from "../assets/chickenWaterController/completed.jpg"
+import ImageLink from '../../components/ImageLink.astro';
+import control_box from "../assets/chickenWaterController/control_box.jpg";
+import tub_in_frame from "../assets/chickenWaterController/tub_in_frame.jpg";
+import assembled_frame from "../assets/chickenWaterController/assembled_frame.jpg";
+import control_box_2 from "../assets/chickenWaterController/control_box_2.jpg";
+import drain_pipe from "../assets/chickenWaterController/drain_pipe.jpg";
+import drain_valve from "../assets/chickenWaterController/drain_valve.jpg";
+import fill_valve from "../assets/chickenWaterController/fill_valve.jpg";
+import completed from "../assets/chickenWaterController/completed.jpg";
 
 export const imageWidth = "800";
 
@@ -131,32 +132,32 @@ state is set to IDLE.
 
 Inside of control box
 
-<Image src={control_box} alt="Inside of control box" width={imageWidth} quality="max" />
+<ImageLink src={control_box} alt="Inside of control box" width={imageWidth} quality="mid" />
 
 Tub in wooden frame
 
-<Image src={tub_in_frame} alt="Tub in wooden frame" width={imageWidth} quality="mid" />
+<ImageLink src={tub_in_frame} alt="Tub in wooden frame" width={imageWidth} quality="mid" />
 
 Assembled frame
 
-<Image src={assembled_frame} alt="Assembled frame" width={imageWidth} quality="mid" />
+<ImageLink src={assembled_frame} alt="Assembled frame" width={imageWidth} quality="mid" />
 
 Control box mounted in chicken coop
 
-<Image src={control_box_2} alt="Control box mounted in chicken coop" width={imageWidth} quality="max" />
+<ImageLink src={control_box_2} alt="Control box mounted in chicken coop" width={imageWidth} quality="mid" />
 
 Drain pipe
 
-<Image src={drain_pipe} alt="Drain pipe" width={imageWidth} quality="mid" />
+<ImageLink src={drain_pipe} alt="Drain pipe" width={imageWidth} quality="mid" />
 
 Drain valve
 
-<Image src={drain_valve} alt="Drain valve" width={imageWidth} quality="mid" />
+<ImageLink src={drain_valve} alt="Drain valve" width={imageWidth} quality="mid" />
 
 Fill valve
 
-<Image src={fill_valve} alt="Fill valve" width={imageWidth} quality="mid" />
+<ImageLink src={fill_valve} alt="Fill valve" width={imageWidth} quality="mid" />
 
 Completed system
 
-<Image src={completed} alt="Completed system" width={imageWidth} quality="mid" />
+<ImageLink src={completed} alt="Completed system" width={imageWidth} quality="mid" />

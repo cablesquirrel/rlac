@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageQuality, ImageMetadata } from 'astro'
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  width: number;
+  quality?: ImageQuality;
+  originalSrc?: string;
+  openInNewTab?: boolean;
+}
+
+const { 
+  src, 
+  alt, 
+  width, 
+  quality = "high", 
+  openInNewTab = false, 
+  ...rest 
+} = Astro.props;
+
+---
+
+<a 
+  href={src.src}
+  class="image-link"
+  target={openInNewTab ? '_blank' : '_self'}
+  rel={openInNewTab ? 'noopener noreferrer' : undefined}
+>
+  <Image
+    src={src}
+    alt={alt}
+    width={width}
+    quality={quality}
+    class="image-link__preview"
+    {...rest}
+  />
+</a>
+
+<style>
+  .image-link {
+    display: inline-block;
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .image-link:hover {
+    transform: scale(1.02);
+  }
+  
+  .image-link__preview {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>

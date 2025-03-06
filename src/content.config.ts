@@ -40,10 +40,14 @@ const workExperience = defineCollection({
   loader: file("src/content/work.json"),
   schema: z.object({
     id: z.number(),
-    title: z.string(),
     company: z.string(),
     duration: z.string(),
-    duties: z.array(z.string()),
+    positions: z.array(
+        z.object({
+            jobTitle: z.string(),
+            duties: z.array(z.string())
+        })
+    ),
     accomplishments: z.array(z.string())
   })
 });
