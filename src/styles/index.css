@@ -87,3 +87,25 @@
   gap: .75rem;
   align-items: center;
 }
+
+.skills-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 0.95;
+    margin-top: 1rem;
+  }
+  
+  .skill-tag {
+    background: rgba(240, 14, 229, 0.223);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    white-space: nowrap;
+  }
+  
+  /* Optional: Add hover effect */
+  .skill-tag:hover {
+    background: rgba(240, 14, 229, 0.880);
+    transform: translateY(-1px);
+  }

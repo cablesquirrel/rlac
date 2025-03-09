@@ -116,7 +116,7 @@ const { Content: About } = await render(about!);
                         <ul>
                             {entry.data.positions.map((pos) => (
                                 <li>
-                                    {pos.jobTitle}
+                                    <strong>{pos.jobTitle}</strong>
                                     <ul>
                                     {pos.duties.map((duty) => (
                                         <li>{duty}</li>
@@ -131,6 +131,12 @@ const { Content: About } = await render(about!);
                             <li>{desc}</li>
                         ))}
                         </ul>
+                        <div class="header-container"><Icon type='lucide' name='brain-circuit' width={24} height={24} class='glow-icon' /><h3>Skills & Technologies</h3></div>
+                        <div class="skills-tag-cloud">
+                            {entry.data.skills.map((skill) => (
+                                <span class="skill-tag">{skill}</span>
+                            ))}
+                        </div>
 					</div>
 				))}
 			</div>

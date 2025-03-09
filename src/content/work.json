@@ -7,54 +7,84 @@
         {
             "jobTitle": "Senior Communications/Network Engineer (current)",
             "duties": [
-                "Mentored technology team employees with an interest in software and automation",
-                "Hosted live learning sessions for automation-related software development topics",
-                "Published video content and a monthly newsletter showcasing automation projects, tools, and technologies"
+                "Saved $300,000 in annual cost avoidance by developing a Git-based strategy for device configuration backups, replacing outdated per-device licensed tools. This solution improved change management processes while providing full audit capabilities.",
+                "Led efforts to adopt modern DevOps platforms such as GitHub Enterprise, which allowed for the condensing three tools into a single cloud-based solution.",
+                "Enforced configuration compliance across 100,000+ devices in 2 years by standardizing Nautobot, Git, and 'Infrastructure as Code' frameworks (Jinja/YAML) by advocating for 'Automation First' design principles.",
+                "Mentored technology team employees with a focus on software development and automation. These mentor sessions with 3 employees increased interest in automation within their job roles and led to the creation of dozens of scripts and utilities.",
+                "Hosted 1-hour live learning sessions for automation-related software development topics, averaging 60 engineers in attendance at each session.",
+                "Edited and published over 10 videos as well as a monthly newsletter showcasing automation projects, tools, and technologies for 230+ subscribers."
             ]
         },
         {
             "jobTitle": "Communications/Network Engineer II",
             "duties": [
-                "Constructed configuration tools to automate new equipment turn-ups",
-                "Created and maintained a dynamic health monitoring platform for Cox's Nokia fiber network of over 50,000 devices"
+                "Served as a subject matter expert for Cox Business Operations Engineering, specializing in the resolution of technical support issues and customer outages.",
+                "Constructed a nation-wide network device configuration tool for over 700 engineers to automate new equipment turn-ups. Eliminated the use of over 20 Microsoft Excel configuration templates, replacing them with a single web based tool, and reducing equipment turn-up time by 2 hours per install.",
+                "Created and maintained a dynamic health monitoring platform for Cox's Nokia fiber network of over 50,000 devices, capable of discovering the entire network's topology four times per hour."
             ]
         },
         {
             "jobTitle": "Communications/Network Engineer I",
             "duties": [
-                "Worked to migrate legacy VLAN-based networks to MPLS",
-                "Provided Tier III support for customer trouble call escalations",
-                "Performed maintenance operations such as software upgrades on Cox Business's core Nokia network"
+                "Performed migrations of legacy networks to scalable Nokia MPLS solutions.",
+                "Resolved 90% of Tier III escalations within 2 hours, exceeding our product Service Level Agreements (SLAs) and protecting the company's brand reputation.",
+                "Performed maintenance operations (eg. software upgrades) on Cox Business's core Nokia network while maintaining four nines (99.99%) uptime."
             ]
         },
         {
             "jobTitle": "IP Centrex Customer Coordinator",
             "duties": [
-                "Consulted with businesses regarding their current voice technology and needs",
-                "Selected cloud based VOIP solutions using Cox's IP Centrex voice platform",
-                "Trained customers on product operation and maintenance",
-                "Handled technical support escalations for high priority customers",
-                "Supported Sales Engineering on large or complex system designs",
-                "Assisted installation techs with network device configuration and phone provisioning",
-                "Developed tools and automation for common provisioning and maintenance tasks"
+                "Consulted with businesses regarding their current voice technology and needs, selecting the appropriate topology design using Cox's IP Centrex voice platform.",
+                "Educated customers on product operation and maintenance, providing hands-on learning on site.",
+                "Handled technical support escalations for high priority customers, ensuring all required support teams are engaged and maintaining customer contact.",
+                "Supported Sales Engineering on large or complex system designs as the product expert. Analyzed current systems and recommended solutions for music-on-hold, overhead paging systems, wireless headsets, or other accessories.",
+                "Assisted installation technicians with network device configuration, phone provisioning, hardware setup, and wiring.",
+                "Developed voice solutions for a wide range of verticals, from the medical and healthcare industry, to automotive repair shops, and restaurants."
             ]
         },
         {
             "jobTitle": "Commercial HFC Technician",
             "duties": [
-                "Installed business data, video, and voice services",
-                "Diagnosed issues with Cox's Hybrid Fiber Coax (HFC) plant",
-                "Assisted residential technicians with large installs or repeat trouble call resolution"
+                "Installed business data, video, and voice services over coax or fiber backhaul.",
+                "Diagnosed issues with Cox's Hybrid Fiber Coax (HFC) plant, reporting measurements and observations to Cox's Outside Plant crew for resolution.",
+                "Assisted residential technicians with large installs, repeat trouble call resolution, or structures with difficult wiring paths. Reduced repeat trouble calls by 15% through collaborative troubleshooting."
             ]
         }
     ],
     "accomplishments": [
-        "Co-Inventor of US Patent #11,303,529 'Efficient Network Topology Diagnostic'",
-        "Participated in the Technology Innovation Program",
-        "Recipient of Cox Most Valuable Player(MVP) award 2015",
-        "Obtained Nokia NRS I certification",
-        "Obtained SIP SSCA certification",
-        "Obtained MEF CECP certification"
+        "Co-Inventor of U.S. Patent #11,303,529: 'Efficient Network Topology Diagnostic'",
+        "Recipient of Cox Most Valuable Player(MVP) award, 2015",
+        "Participated in the Cox Technology Innovation Program"
+    ],
+    "skills": [
+        "Languages (BASH, Python, C++, PHP)",
+        "Frontend (HTML, CSS, Bootstrap)",
+        "Structured Data (YAML, JSON)",
+        "DevOps",
+        "Artifactory",
+        "Infrastructure as Code/IaC (Nautobot)",
+        "API Gateway (Kong)",
+        "Kubernetes (k8s, k3s, Rancher, GKE)",
+        "VoIP (SIP)",
+        "MPLS (VPLS, EPIPE)",
+        "Routing (BGP, IS-IS, OSPF, RIP)",
+        "Switching (VLAN, Spanning-Tree)",
+        "Nokia",
+        "Cisco",
+        "Juniper",
+        "Authentication (LDAP, TACACS+, RADIUS)",
+        "API (REST, GraphQL)",
+        "Single Sign-On/SSO (Azure, EntraID, JWT)",
+        "Azure DevOps",
+        "Git (Bitbucket, GitHub Enterprise)",
+        "CI/CD (GitHub Actions, GitHub Actions Runner Controller)",
+        "Linux",
+        "Red Hat Enterprise Linux (RHEL)",
+        "Containers/Containerization (Docker, LXC)",
+        "Hypervisor (VMware ESXi, Proxmox)",
+        "Nokia NRS I",
+        "SIP SSCA",
+        "MEF CECP"
     ]
   },
   {
@@ -65,12 +95,36 @@
         {
             "jobTitle": "Business Telephone Systems Technician",
             "duties": [
-                "Placeholder"
+                "Installed and repaired low voltage cabling, fiber optics, and network equipment for small-to-medium businesses.",
+                "Installed and programmed analog, digital, and IP phone systems, along with overhead paging.",
+                "Designed and managed site-to-site VPNs, wireless access points, and small business networks.",
+                "Maintained the networks and communication services of the Sprint/Nextel repair centers from the prior position."
+            ]
+        },
+        {
+            "jobTitle": "Phone Repair Technician - Sprint/Nextel",
+            "duties": [
+                "Performed component-level repair on Sprint and Nextel mobile phones. Repaired or replaced screens, charging ports, keypads, antennas, or other broken items.",
+                "Assisted customers with data recovery and data transfer to new or replacement devices.",
+                "Ordered store inventory for phones, accessories, and replacement parts for 5 repair centers franchised under McCall Technology Group (formerly McCall Communications, inc. and Com-Stallers U.S.A, inc.)"
             ]
         }
     ],
     "accomplishments": [
-        "Obtained certifications for Toshiba Strata and IPEdge phone system installation and programming" 
+        "Certified in Toshiba Strata and IPEdge phone system installation/programming" 
+    ],
+    "skills": [
+        "Structured Cabling",
+        "Optical Fiber (Single Mode, Multimode)",
+        "Ethernet (Cat5, Cat5e, Cat6)",
+        "Toshiba (CIX, IPEdge)",
+        "Avaya (IP Office, Partner)",
+        "Nortel (MICS, CICS)",
+        "RJ45",
+        "RJ11",
+        "66 Block",
+        "110 Block",
+        "Cross-Connect"
     ]
   },
   {
@@ -81,12 +135,22 @@
         {
             "jobTitle": "Retail Parts Specialist",
             "duties": [
-                "Placeholder"
+                "Served as a Retail Parts Specialist (currently termed 'Retail Parts Pro'), combining both manager and sales roles, along with the nationally recognized ASE Parts Specialist certification, to serve as a parts subject matter expert for customers and team members.",
+                "Held the keyholder responsibility, ensuring all daily opening and closing tasks were performed accurately and promptly, ensuring a positive and consistent customer experience.",
+                "Assisted customers with locating the correct repair part for their vehicle, and advising possible repair parts based on description of issue. Provided windshield wiper and battery replacement services with purchase of product.",
+                "Performed inventory counts and worked to maintain accurate inventory along with predicting order quantities based on sales trends."
             ]
         }
     ],
     "accomplishments": [
-        "Obtained ASE Parts Specialist (P2) certification" 
+        "Obtained ASE Parts Specialist (P2) Certification" 
+    ],
+    "skills": [
+        "ASE Certified Parts Specialist",
+        "Automotive Parts",
+        "Customer Service Representative",
+        "Cash Handling",
+        "Retail Sales"
     ]
   }
 ]

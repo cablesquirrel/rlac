@@ -48,7 +48,8 @@ const workExperience = defineCollection({
             duties: z.array(z.string())
         })
     ),
-    accomplishments: z.array(z.string())
+    accomplishments: z.array(z.string()),
+    skills: z.array(z.string())
   })
 });
 
