@@ -22,7 +22,7 @@ export default defineConfig({
       name: 'RealLife{AsCode}',
       openGraph: {
         home: {
-          title: 'RealLifeAsCode',
+          title: 'RealLifeAsCode - Automating Life\'s Challenges',
           description: 'Automating our way through life.'
         },
         blog: {
