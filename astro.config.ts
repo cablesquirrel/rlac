@@ -34,10 +34,10 @@ export default defineConfig({
         }
       },
       giscus: {
-        repository: 'louisescher/spectre',
-        repositoryId: 'R_kgDONjm3ig',
+        repository: 'cablesquirrel/rlac',
+        repositoryId: 'R_kgDOOCJjJw',
         category: 'General',
-        categoryId: 'DIC_kwDONjm3is4ClmBF',
+        categoryId: 'DIC_kwDOOCJjJ84CqcR1',
         mapping: 'pathname',
         strict: true,
         reactionsEnabled: true,
