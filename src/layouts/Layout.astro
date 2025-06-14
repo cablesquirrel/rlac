@@ -53,6 +53,7 @@ const { title, description, image, pagefindIgnore, article } = Astro.props;
 		{article && article.updatedAt && (
 			<meta property="article:modified_time" content={article.updatedAt.toISOString()} />
 		)}
+        <script src="/stl_viewer/stl_viewer.min.js" defer></script>
 	</head>
 	<body>
 		<main data-pagefind-ignore={pagefindIgnore}>

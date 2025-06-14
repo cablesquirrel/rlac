@@ -100,6 +100,23 @@ main {
   transition: background-color .15s ease, border .15s ease;
 }
 
+.post-container-model {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #353535;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color .15s ease, border .15s ease;
+}
+
+.model-preview {
+    height: 400px;
+    width: 400px;
+    margin: auto;
+}
+
 .post-container:hover, .post-container:focus-visible {
   background-color: rgba(var(--primary-rgb), .125);
   border: 1px solid var(--primary);
@@ -118,6 +135,13 @@ main {
 }
 
 .post-header h3 {
+  margin: 0;
+}
+
+.post-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   margin: 0;
 }
 

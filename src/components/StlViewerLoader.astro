@@ -1,0 +1,47 @@
+---
+// StlViewerLoader.astro
+export interface Props {
+  id: string;
+  filename: string;
+  color: string;
+  back_color: string;
+  rot_x: string;
+  rot_y: string;
+  rot_z: string;
+  x: string;
+  y: string;
+  z: string;
+  scale_x: string;
+  scale_y: string;
+  scale_z: string;
+  zoom: string;
+}
+const { id, filename, color, back_color, rot_x, rot_y, rot_z, x, y, z, scale_x, scale_y, scale_z, zoom } = Astro.props;
+---
+
+<div id={id} class="model-preview"></div>
+
+<script type="module" define:vars={{ id, filename, color, back_color, rot_x, rot_y, rot_z, x, y, z, scale_x, scale_y, scale_z, zoom }} is:inline>
+  const container = document.getElementById(id);
+  if (container) {
+    const viewer = new StlViewer(container, {
+      models: [{
+            id: -1,
+            filename: filename,
+            color: color,
+            x: x,
+            y: y,
+            z: z,
+            rotationx: rot_x,
+            rotationy: rot_y,
+            rotationz: rot_z,
+            scalex: scale_x,
+            scaley: scale_y,
+            scalez: scale_z,
+        }],
+        bg_color: back_color,
+        auto_resize: false,
+        zoom: zoom
+    });
+  }
+</script>

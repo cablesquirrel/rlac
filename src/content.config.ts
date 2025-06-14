@@ -64,6 +64,30 @@ const education = defineCollection({
     })
 });
 
+const models3D = defineCollection({
+    loader: file("src/content/3dmodels.json"),
+    schema: z.object({
+        id: z.number(),
+        date: z.coerce.date(),
+        title: z.string(),
+        filename: z.string(),
+        description: z.string(),
+        thingiverse_link: z.string(),
+        color: z.string(),
+        back_color: z.string(),
+        rot_x: z.string(),
+        rot_y: z.string(),
+        rot_z: z.string(),
+        x: z.string(),
+        y: z.string(),
+        z: z.string(),
+        scale_x: z.string(),
+        scale_y: z.string(),
+        scale_z: z.string(),
+        zoom: z.string()
+    })
+});
+
 const tags = defineCollection({
   loader: file("src/content/tags.json"),
   schema: z.object({
@@ -104,4 +128,4 @@ const projects = defineCollection({
   })
 });
 
-export const collections = { tags, posts, projects, other, quickInfo, socials, workExperience, education };
+export const collections = { tags, posts, projects, other, quickInfo, socials, workExperience, education, models3D };

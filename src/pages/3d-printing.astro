@@ -1,0 +1,72 @@
+---
+import '../styles/article-list.css';
+
+import { getCollection } from "astro:content";
+import Card from "../components/Card.astro";
+import Icon from "../components/Icon.astro";
+import StlViewerLoader from "../components/StlViewerLoader.astro";
+import Layout from "../layouts/Layout.astro";
+import { openGraph } from 'spectre:globals';
+
+const models = await getCollection('models3D');
+
+---
+<script src="/stl_viewer/stl_viewer.min.js" is:inline></script>
+<Layout
+  title={openGraph.blog.title || "3D Printing Projects"}
+  description={openGraph.blog.description}
+>
+  <div class="layout-grid-left" slot="left">
+    <Card class="flex-col-card">
+      <h2 class="no-mt">Model Warehouse</h2>
+     On this page you will find a listing of 3D models I've created. Most of them created in Autodesk Fusion 360, as parametric design allows for easier changes in the future.
+    <p/>
+     The model previews are interactive using the <a href="https://www.viewstl.com/plugin/">STLViewer Plugin Library</a>
+     <p/>
+     Be sure to check out <a href="https://www.thingiverse.com/cablesquirrel/designs">My Thingiverse Profile</a> to view these models in more detail, and to stay up to date on remixes and feedback from other users.
+    </Card>
+  </div>
+  <div class="layout-grid-right" slot="right">
+		<Card>
+			<div class="header-container">
+				<Icon type="lucide" name="pencil-ruler" width={24} height={24} class='glow-icon' />
+				<h2>My 3D Models</h2>
+			</div>
+			<div class="content-container">
+				{models.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).map((model) => (
+                    <div class="post-container-model">
+						<div class="post-header">
+                            <Icon type="lucide" name="cuboid" width={24} height={24} class='glow-icon' />
+							<h3>{model.data.title}</h3>
+							<span class="post-date">{model.data.date.toLocaleDateString()}</span>
+						</div>
+                        <StlViewerLoader 
+                            id={`model_preview_${model.data.id}`}
+                            filename={model.data.filename}
+                            color={model.data.color}
+                            rot_x={model.data.rot_x}
+                            rot_y={model.data.rot_y}
+                            rot_z={model.data.rot_z}
+                            x={model.data.x}
+                            y={model.data.y}
+                            z={model.data.z}
+                            scale_x={model.data.scale_x}
+                            scale_y={model.data.scale_y}
+                            scale_z={model.data.scale_z}
+                            back_color={model.data.back_color}
+                            zoom={model.data.zoom}
+                        />
+                        <h4><Icon type="lucide" name="notebook-pen" width={24} height={24} class='glow-icon' /> Description</h4>
+						<span>{model.data.description}</span>
+                        
+                        <h4><Icon type="lucide" name="link" width={24} height={24} class='glow-icon' /> Links</h4>
+                        <span>View on Thingiverse: <a href={model.data.thingiverse_link}>{model.data.thingiverse_link}</a></span>
+                        <span>Download STL: <a href={model.data.filename}>Model File (.stl)</a></span>
+					</div>
+				))}
+			</div>
+		</Card>
+  </div>
+</Layout>
+
+
