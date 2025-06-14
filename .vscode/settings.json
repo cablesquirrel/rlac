@@ -1,3 +1,23 @@
 {
-  "editor.gotoLocation.multipleDefinitions": "goto"
+"editor.gotoLocation.multipleDefinitions": "goto",
+"cSpell.words": [
+    "backhauls",
+    "cablesquirrel",
+    "CECP",
+    "Centrex",
+    "dmodels",
+    "DOOC",
+    "Entra",
+    "giscus",
+    "iconify",
+    "lucide",
+    "MPLS",
+    "Nautobot",
+    "OSPF",
+    "pagefind",
+    "rlac",
+    "SSCA",
+    "TACACS",
+    "thingiverse"
+]
 }

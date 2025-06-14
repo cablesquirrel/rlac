@@ -71,6 +71,7 @@ const models3D = defineCollection({
         date: z.coerce.date(),
         title: z.string(),
         filename: z.string(),
+        design_file: z.string(),
         description: z.string(),
         thingiverse_link: z.string(),
         color: z.string(),
