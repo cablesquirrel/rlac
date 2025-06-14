@@ -34,7 +34,7 @@ const models = await getCollection('models3D');
 			</div>
 			<div class="content-container">
 				{models.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).map((model) => (
-                    <div class="post-container-model">
+                    <div class="post-container-model" data-pagefind-body>
 						<div class="post-header">
                             <Icon type="lucide" name="cuboid" width={24} height={24} class='glow-icon' />
 							<h3>{model.data.title}</h3>
