@@ -24,10 +24,10 @@ Magnetic pickup distributors are supported with Sniper EFI to allow for computer
 distributor poses a limitation with the Holley Sniper setup. Normally, magnetic pickup distributors contain a simple wire coil that picks up the induced
 voltage when the reluctor rotates past the pickup, sending the raw voltage spikes to the ignition control system.
 
-The 2.3 distributor has 2 wires attached, and uses a special pickup that contains the wire coil, along with a transistor-based amplifier circuit. One of
+The 2.3 distributor has 2 wires attached, and uses a special pickup that contains the wire coil along with a transistor-based amplifier circuit. One of
 the wires comes from the vehicle's 12V ignition positive to drive the transistor circuitry. The other functions as the
 trigger output, and emulates a points-style distributor. As it rotates it pulls the ground side of the ignition coil low, building a magnetic field. When
-the output 
+the output returns to its high state, the magnetic field collapses and a spark on the ignition coil secondary is created.
 
 This means we are forced to set up our Holley Sniper EFI with a points trigger input. Unfortunately, this mode of operation does not allow for control
 of the ignition timing from the Sniper. Timing control is achieved using the stock vacuum advance configuration.
