@@ -1,11 +1,32 @@
 [
   {
     "id": 1,
-    "duration": "February 2013 - present",
+    "duration": "September 2025 - Present",
+    "company": "BNSF Railway",
+    "positions" : [
+        {
+            "jobTitle": "Senior Software Engineer - Enterprise Networking",
+            "duties": [
+                "Implemented a cloud-based endpoint monitoring solution to alert on failures of customer facing services within 15 minutes of detection."
+            ]
+        }
+    ],
+    "accomplishments": [
+
+    ],
+    "skills": [
+        "Dell Enterprise SONiC",
+        "Podman",
+        "Multi-Architecture Containerization"
+    ]
+    },
+    {
+    "id": 2,
+    "duration": "February 2013 - September 2025",
     "company": "Cox Communications, Inc.",
     "positions" : [
         {
-            "jobTitle": "Senior Communications/Network Engineer (current)",
+            "jobTitle": "Senior Communications/Network Engineer",
             "duties": [
                 "Saved $300,000 in annual cost avoidance by developing a Git-based strategy for device configuration backups, replacing outdated per-device licensed tools. This solution improved change management processes while providing full audit capabilities.",
                 "Led efforts to adopt modern DevOps platforms such as GitHub Enterprise, which allowed for the condensing three tools into a single cloud-based solution.",
@@ -88,7 +109,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "duration": "November 2009 - February 2013",
     "company": "McCall Technology Group",
     "positions" : [
@@ -128,7 +149,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "duration": "July 2005 - February 2011",
     "company": "Advance Auto Parts",
     "positions" : [

@@ -1,25 +1,34 @@
 {
 "editor.gotoLocation.multipleDefinitions": "goto",
 "cSpell.words": [
+    "Avaya",
+    "backhaul",
     "backhauls",
+    "BNSF",
     "cablesquirrel",
     "CECP",
     "Centrex",
+    "CICS",
     "dmodels",
     "DOOC",
     "Entra",
     "giscus",
     "iconify",
+    "keyholder",
     "lucide",
     "MPLS",
+    "Multimode",
     "Nautobot",
+    "Nortel",
     "OSPF",
     "pagefind",
     "reluctor",
     "rlac",
     "SOHC",
     "SSCA",
+    "Stallers",
     "TACACS",
-    "thingiverse"
+    "thingiverse",
+    "VPLS"
 ]
 }
