@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import expressiveCode from 'astro-expressive-code';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import mermaid from 'astro-mermaid';
+import { satteri } from '@astrojs/markdown-satteri';
 import spectre from './package/src';
 
 import node from '@astrojs/node';
@@ -12,12 +14,32 @@ import { spectreDark } from './src/ec-theme';
 export default defineConfig({
   site: 'https://reallifeascode.com',
   output: 'static',
+  markdown: {
+    processor: satteri({
+      features: { rawHtml: true }
+    }),
+    syntaxHighlight: {
+      type: 'shiki',
+      excludeLangs: ['plaintext', 'mermaid']
+    }
+  },
   integrations: [
     expressiveCode({
       themes: [spectreDark],
     }),
     mdx(),
     sitemap(),
+    mermaid({
+      theme: 'forest',
+      autoTheme: true,
+      mermaidConfig: {
+        securityLevel: 'loose',
+        themeVariables: {
+          lineColor: '#c7c7c7',
+          arrowheadColor: '#c7c7c7'
+        }
+      }
+    }),
     spectre({
       name: 'RealLife{AsCode}',
       openGraph: {

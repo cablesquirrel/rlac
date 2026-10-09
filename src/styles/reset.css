@@ -75,7 +75,7 @@ p:last-of-type {
   margin-bottom: 0;
 }
 
-pre, pre *, code {
+pre:not(.mermaid), pre:not(.mermaid) *, code {
   font-family: 'Geist Mono', monospace;
   line-height: 1;
 }
