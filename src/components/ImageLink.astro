@@ -116,12 +116,14 @@ const {
 </style>
 
 <script>
-  if (!window.__imageLightboxInit) {
-    window.__imageLightboxInit = true;
+  const win = window as unknown as Window & { __imageLightboxInit?: boolean };
 
-    let overlay = null;
-    let overlayImg = null;
-    let lastTrigger = null;
+  if (!win.__imageLightboxInit) {
+    win.__imageLightboxInit = true;
+
+    let overlay: HTMLDivElement | null = null;
+    let overlayImg: HTMLImageElement | null = null;
+    let lastTrigger: HTMLElement | null = null;
 
     function buildOverlay() {
       overlay = document.createElement('div');
@@ -149,13 +151,13 @@ const {
       document.body.appendChild(overlay);
     }
 
-    function openLightbox(href, alt, trigger) {
-      if (!overlay) buildOverlay();
+    function openLightbox(href: string, alt: string | undefined, trigger: HTMLElement) {
+      if (!overlay || !overlayImg) buildOverlay();
 
       lastTrigger = trigger;
-      overlayImg.src = href;
-      overlayImg.alt = alt || '';
-      overlay.classList.add('is-open');
+      overlayImg!.src = href;
+      overlayImg!.alt = alt || '';
+      overlay!.classList.add('is-open');
       document.body.classList.add('image-lightbox-open');
     }
 
@@ -169,7 +171,8 @@ const {
     }
 
     document.addEventListener('click', (e) => {
-      const trigger = e.target.closest('a[data-lightbox]');
+      const target = e.target as HTMLElement | null;
+      const trigger = target?.closest<HTMLAnchorElement>('a[data-lightbox]');
       if (!trigger) return;
 
       e.preventDefault();
