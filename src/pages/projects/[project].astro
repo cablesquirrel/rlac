@@ -10,6 +10,7 @@ import { render } from "astro:content";
 import { getCollection } from "astro:content";
 import ImageGlow from "../../components/ImageGlow.astro";
 import Icon from "../../components/Icon.astro";
+import { giscus } from 'spectre:globals';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -25,7 +26,7 @@ export const getStaticPaths = (async () => {
 
 console.log(project.data.info);
 
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 ---
 <Layout
   title={project.data.title}
@@ -52,6 +53,22 @@ const { Content } = await render(project);
         })}
       </ul>
     </Card>
+    <Card class="toc-card">
+      <h2 class="no-mt">Table of contents</h2>
+      <ol>
+        <li class="toc-li">
+          <a href={`#_top`} class="active">{project.data.title}</a>
+        </li>
+        {headings.map((heading, i) => { 
+          if(i === 0) { return null; }
+          return (
+          <li class="toc-li" data-depth={heading.depth}>
+            <a href={`#${heading.slug}`}>{heading.text}</a>
+          </li>
+          );
+        })}
+      </ol>
+    </Card>
   </div>
   <article slot="right" data-pagefind-body>
     <Card>
@@ -70,8 +87,33 @@ const { Content } = await render(project);
       <hr class="end-of-article" />
       <a href="/projects" class="block-link" data-pagefind-ignore>← Back to projects</a>
     </Card>
+    {giscus && (
+      <Card>
+        <div class="comments" data-pagefind-ignore>
+          <script
+            is:inline
+            src="https://giscus.app/client.js"
+            data-repo={giscus.repository}
+            data-repo-id={giscus.repositoryId}
+            data-category={giscus.category}
+            data-category-id={giscus.categoryId}
+            data-mapping={giscus.mapping}
+            data-strict={giscus.strict === true ? "1" : "0"}
+            data-reactions-enabled={giscus.reactionsEnabled === true ? "1" : "0"}
+            data-emit-metadata={giscus.emitMetadata === true ? "1" : "0"}
+            data-input-position={giscus.commentsInput}
+            data-theme={giscus.theme || "https://spectre.louisescher.dev/styles/giscus"}
+            data-lang={giscus.lang}
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+          />
+        </div>
+      </Card>
+    )}
   </article>
 </Layout>
+<script src="../../scripts/toc.ts" />
 <style>
   .project-info-item {
     display: flex;
