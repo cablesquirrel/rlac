@@ -197,6 +197,15 @@ table {
   border-collapse: collapse;
 }
 
+table:has(.image-link) {
+  width: 100%;
+  table-layout: fixed;
+}
+
+table:has(.image-link) td {
+  padding: 0;
+}
+
 table th {
   padding: .5rem 1.5rem .5rem 0;
   border-bottom: 1px solid #353535;
